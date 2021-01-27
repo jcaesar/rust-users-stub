@@ -60,7 +60,7 @@ use std::collections::HashMap;
 use std::ffi::OsStr;
 use std::sync::Arc;
 
-pub use libc::{uid_t, gid_t};
+pub use super::{uid_t, gid_t};
 pub use base::{User, Group};
 pub use traits::{Users, Groups};
 

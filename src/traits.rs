@@ -1,7 +1,7 @@
 use std::ffi::OsStr;
 use std::sync::Arc;
 
-use libc::{uid_t, gid_t};
+use super::{uid_t, gid_t};
 
 use base::{User, Group};
 

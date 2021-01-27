@@ -1,30 +1,23 @@
 [package]
 name = "users"
-description = "Library for accessing Unix users and groups"
+description = "Pass-through for the users crate on unix, stub elsewhere"
 
-authors = ["Benjamin Sago <ogham@bsago.me>"]
-documentation = "https://docs.rs/users/"
-exclude = ["/.rustfmt.toml", "/.travis.yml"]
+authors = ["Julius Michaelis <gitter@liftm.de>"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/ogham/rust-users"
+repository = "https://github.com/jcaesar/rust-users-stub"
 version = "0.11.0"
 
 [features]
+force-stub = []
 default = ["cache", "mock", "logging"]
 cache = []
 mock = []
-logging = ["log"]
+logging = []
 
-[dependencies.libc]
-version = "0.2"
+[dependencies]
+cfg-if = "*"
 
-[dependencies.log]
-version = "0.4"
-optional = true
-default_features = false
-
-[dev_dependencies.env_logger]
-version = "0.7"
-default_features = false
-features = []
+[target.'cfg(unix)'.dependencies]
+users-orig = { git = "https://github.com/ogham/rust-users", tag = "v0.11.0", package = "users" }
+# again a patching limitation: can't use crates.io, or we'd have a dependency cycle

@@ -84,7 +84,7 @@
 //! it can be queried multiple times or go out of scope and the values it
 //! produces are not affected.
 
-use libc::{uid_t, gid_t};
+use super::{uid_t, gid_t};
 use std::cell::{Cell, RefCell};
 use std::collections::hash_map::Entry::{Occupied, Vacant};
 use std::collections::HashMap;
